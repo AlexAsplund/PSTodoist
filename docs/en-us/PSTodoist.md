@@ -1,8 +1,8 @@
 ---
 Module Name: PSTodoist
 Module Guid: fb958813-606f-43bc-88df-0c1fdf6f4123
-Download Help Link: {{Please enter FwLink manually}}
-Help Version: {{Please enter version of help manually (X.X.X.X) format}}
+Download Help Link: https://github.com/AlexAsplund/PSTodoist/blob/master/docs/en-us/PSTodoist.md
+Help Version: 0.0.0.1
 Locale: en-US
 ---
 

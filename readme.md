@@ -4,6 +4,9 @@
 
  This module or author is NOT affiliated with TODOIST.
 
+ ## Documentation and helo
+ Refer to [the docs](docs/en-us/PSTodoist.md)
+
 ## About Author
 Author: https://github.com/AlexAsplund
 

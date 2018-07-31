@@ -179,6 +179,13 @@ Task NewVersion -depends GenerateMarkdown,Build,Test {
     Update-ModuleManifest -Path "$SrcRootDir\PSTodoist.psd1" -Guid ([guid]::NewGuid().guid) -ModuleVersion $ModuleVersion
 }
 
+###############################################################################
+# Customize these tasks for performing operations before and/or after GenerateMarkdown.
+###############################################################################
+Task AfterGenerateMarkdown {
+    . $PSScriptRoot\buildhelpindex.ps1
+}
+
 # Executes before the BeforeStageFiles phase of the Build task.
 Task BeforeBuild {
 

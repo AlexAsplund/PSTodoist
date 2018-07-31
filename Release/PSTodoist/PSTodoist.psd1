@@ -12,13 +12,13 @@
 RootModule = 'PSTodoist.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.0'
+ModuleVersion = '0.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
 
 # ID used to uniquely identify this module
-GUID = '1814fced-426c-44ec-a0b8-0f0c02fb6147'
+GUID = '423257e3-4f20-4550-b6d3-7887eb232b44'
 
 # Author of this module
 Author = 'Alex Asplund'

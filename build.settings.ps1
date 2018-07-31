@@ -182,6 +182,11 @@ Task NewVersion -depends GenerateMarkdown,Build,Test {
 ###############################################################################
 # Customize these tasks for performing operations before and/or after GenerateMarkdown.
 ###############################################################################
+Task BeforeGenerateMarkdown {
+    Remove-Item $PSScriptRoot\docs\en-us\*
+}
+
+
 Task AfterGenerateMarkdown {
     . $PSScriptRoot\buildhelpindex.ps1
 }

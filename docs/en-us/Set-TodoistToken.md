@@ -13,11 +13,12 @@ Sets todoist token as a global variable
 ## SYNTAX
 
 ```
-Set-TodoistToken [[-Token] <Object>] [<CommonParameters>]
+Set-TodoistToken [[-Token] <Object>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Sets todoist token as a global variable (sorry)
+You can also use parameter -Token on all commands that needs a Token
 
 ## EXAMPLES
 
@@ -42,9 +43,6 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
-
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

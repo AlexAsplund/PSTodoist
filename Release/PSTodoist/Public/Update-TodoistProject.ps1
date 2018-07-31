@@ -11,10 +11,15 @@ function Update-TodoistProject
 {
     [CmdletBinding()]
     param (
+        # Id of existing project
         [parameter(Mandatory)]
         [int64]$Id,
+
+        # New name of project
         [parameter(Mandatory)]
         [string]$Name,
+        
+        # Todoist token if it's not set as a global variable with Set-TodoistToken
         [string]$Token = $Global:TodoistToken
     )
     

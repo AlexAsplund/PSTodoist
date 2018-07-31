@@ -29,7 +29,7 @@ New-TodoistProject -Name "My cool project"
 ## PARAMETERS
 
 ### -Name
-{{Fill Name Description}}
+New projects name
 
 ```yaml
 Type: Object
@@ -44,7 +44,7 @@ Accept wildcard characters: False
 ```
 
 ### -Token
-{{Fill Token Description}}
+Todoist token if it's not set as a global variable with Set-TodoistToken
 
 ```yaml
 Type: String

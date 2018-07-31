@@ -35,7 +35,7 @@ Get-TodoistComment -Id 5678 -Category "Category"
 ## PARAMETERS
 
 ### -Id
-{{Fill Id Description}}
+Id of todoist comment
 
 ```yaml
 Type: Int64
@@ -50,7 +50,7 @@ Accept wildcard characters: False
 ```
 
 ### -Category
-{{Fill Category Description}}
+Category of ID (either task or project)
 
 ```yaml
 Type: String
@@ -65,7 +65,7 @@ Accept wildcard characters: False
 ```
 
 ### -Token
-{{Fill Token Description}}
+Todoist token if it's not set as a global variable with Set-TodoistToken
 
 ```yaml
 Type: String

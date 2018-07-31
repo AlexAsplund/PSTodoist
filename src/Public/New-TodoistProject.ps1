@@ -10,8 +10,11 @@ function New-TodoistProject
 {
     [CmdletBinding()]
     param (
+        # New projects name
         [parameter(Mandatory)]
         $Name,
+
+        # Todoist token if it's not set as a global variable with Set-TodoistToken
         [String]$Token = $Global:TodoistToken
     )
     

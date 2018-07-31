@@ -31,7 +31,7 @@ New-TodoistLabel -Name "My cool label"
 ## PARAMETERS
 
 ### -Name
-{{Fill Name Description}}
+New name of label
 
 ```yaml
 Type: Object
@@ -46,7 +46,7 @@ Accept wildcard characters: False
 ```
 
 ### -Token
-{{Fill Token Description}}
+Todoist token if it's not set as a global variable with Set-TodoistToken
 
 ```yaml
 Type: String

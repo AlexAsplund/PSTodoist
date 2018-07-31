@@ -20,6 +20,7 @@ Update-TodoistLabel [-Id] <Int64> [[-Name] <String>] [[-Order] <Int32>] [[-Token
 ## DESCRIPTION
 Updates a label.
 Only name supported in the current API (V8 beta) and not intendent etc.
+You must set either parameter Name, Token or both
 
 ## EXAMPLES
 
@@ -31,7 +32,7 @@ Update-TodoistLabel -Id 1234 -Name "My updated label"
 ## PARAMETERS
 
 ### -Id
-{{Fill Id Description}}
+ID of existing label
 
 ```yaml
 Type: Int64
@@ -46,7 +47,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-{{Fill Name Description}}
+New name of label
 
 ```yaml
 Type: String
@@ -61,7 +62,7 @@ Accept wildcard characters: False
 ```
 
 ### -Order
-{{Fill Order Description}}
+New order of label
 
 ```yaml
 Type: Int32
@@ -76,7 +77,7 @@ Accept wildcard characters: False
 ```
 
 ### -Token
-{{Fill Token Description}}
+Todoist token if it's not set as a global variable with Set-TodoistToken
 
 ```yaml
 Type: String

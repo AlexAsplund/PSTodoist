@@ -12,12 +12,16 @@ function Get-TodoistComment
 {
     [CmdletBinding()]
     param (
+        # Id of todoist comment
         [parameter(ValueFromPipelineByPropertyName, Mandatory = $True)]
         [int64]$Id,
+
+        # Category of ID (either task or project)
         [parameter(Mandatory)]
         [ValidateSet("Project", "Task")]
         [String]$Category,
-
+        
+        # Todoist token if it's not set as a global variable with Set-TodoistToken
         [string]$Token = $Global:TodoistToken
     )
     

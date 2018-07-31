@@ -19,10 +19,13 @@ https://github.com/AlexAsplund/PSTodoist/archive/v0.0.1.zip
 ## Install
 See [install](install.md)
 
- ## Documentation and help
+## Help
  Refer to [the docs](docs/en-us/PSTodoist.md)
 
-## About Author
+## Get API-token from todoist.
+On the todoist website, go to: Todoist Settings -> Account -> API token.
+
+## About the author
 Author: https://github.com/AlexAsplund
 
 Website: https://automativity.com

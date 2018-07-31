@@ -165,7 +165,7 @@ Task AfterStageFiles {
 # Customize these tasks for performing operations before and/or after Build.
 ###############################################################################
 
-Task NewVersionDir -depends GenerateMarkdown,Build,Test {
+Task NewVersion -depends GenerateMarkdown,Build,Test {
     
     Write-Output "Upping module version and creating new guid"
     $PSM = Invoke-Expression (Get-Content $SrcRootDir\PSTodoist.psd1 -Raw)
@@ -177,17 +177,6 @@ Task NewVersionDir -depends GenerateMarkdown,Build,Test {
     $ModuleVersion = $VersionArr -join "."
 
     Update-ModuleManifest -Path "$SrcRootDir\PSTodoist.psd1" -Guid ([guid]::NewGuid().guid) -ModuleVersion $ModuleVersion
-    Write-Output "Creating out dir as module version"    
-    Remove-Item -Path "$OutDir\$ModuleVersion\" -Force -ErrorAction "SilentlyContinue" -Recurse
-    New-Item -Path $OutDir -Name $ModuleVersion -ItemType Directory
-    Copy-Item -Path "$OutDir\PSTodoist\*" -Destination "$OutDir\$ModuleVersion\" -Recurse -Force
-
-    Write-Output "Adding latest dir to release"
-
-    Remove-Item -Path "$OutDir\Latest\" -Force -ErrorAction "SilentlyContinue"
-
-    Write-Output "Copying to Release to Latest"
-    Copy-Item -Path "$OutDir\PSTodoist" -Destination "$OutDir\Latest" -Recurse -Force
 }
 
 # Executes before the BeforeStageFiles phase of the Build task.

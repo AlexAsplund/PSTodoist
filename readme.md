@@ -41,6 +41,7 @@ Get-TodoistTask -Token <Yourtoken>
 Example:
 
 ```Powershell
+Set-TodoistToken -Token abcdef12345
 Get-TodoistTask | Where-Object {$_.Content -Match "Do dishes"} | Update-TodoistTask -Content "Buy dishwasher"
 ```
 

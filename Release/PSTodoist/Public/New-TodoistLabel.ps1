@@ -1,6 +1,10 @@
 <#
 .SYNOPSIS
     Creates a new label in todoist
+.DESCRIPTION
+    Creates a new label in todoist
+    Only name supported during creation of label in V8 beta API.
+    If you want to set order, see Update-TodoistLabel
 .EXAMPLE
     New-TodoistLabel -Name "My cool label"
 #>

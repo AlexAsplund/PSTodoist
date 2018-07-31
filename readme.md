@@ -6,7 +6,12 @@
 
 ## Download
 
-v0.0.1: https://github.com/AlexAsplund/PSTodoist/archive/v0.0.1.zip
+### v0.0.2
+https://github.com/AlexAsplund/PSTodoist/archive/v0.0.2.zip
+
+### v0.0.1
+https://github.com/AlexAsplund/PSTodoist/archive/v0.0.1.zip
+
 
 ## Install
 See [install](install.md)

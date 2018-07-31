@@ -4,7 +4,14 @@
 
  This module or author is NOT affiliated with TODOIST.
 
- ## Documentation and helo
+## Download
+
+v0.0.1: https://github.com/AlexAsplund/PSTodoist/archive/v0.0.1.zip
+
+## Install
+See [install](install.md)
+
+ ## Documentation and help
  Refer to [the docs](docs/en-us/PSTodoist.md)
 
 ## About Author

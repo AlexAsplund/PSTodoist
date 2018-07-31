@@ -58,7 +58,7 @@ $Task.Content = 'Buy dishwasher'
 $Task.Update()
 
 # To close task with class method
-$Task.Close
+$Task.Close()
 
 # To update a class with function
 Update-TodoistTask -Id $Task.Id -Content "Buy cheap dishwasher"

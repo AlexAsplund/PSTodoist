@@ -1,6 +1,8 @@
 <#
 .SYNOPSIS
     Creates a new project in todoist
+.DESCRIPTION
+    Creates a new project in todoist
 .EXAMPLE
     New-TodoistProject -Name "My cool project"
 #>

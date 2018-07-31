@@ -3,7 +3,6 @@
     Gets all open todoist projects
 .DESCRIPTION
     Gets all open todoist projects
-    
 .EXAMPLE
     Get-Todoistproject
 .EXAMPLE

@@ -7,7 +7,7 @@
 
     $ModulePath = "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\"
 
-    $Version = "0.0.1"
+    $Version = "0.0.2"
 
 
 

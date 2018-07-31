@@ -4,7 +4,6 @@
 .DESCRIPTION
     Updates a label.
     Only name supported in the current API (V8 beta) and not intendent etc.
-    You need to set parameter "Name" or "Order" or both
 .EXAMPLE
     Update-TodoistLabel -Id 1234 -Name "My updated label"
 #>
@@ -12,17 +11,13 @@ function Update-TodoistLabel
 {
     [CmdletBinding()]
     param (
-        # Id of todoist label
         [parameter(Mandatory)]
         [int64]$Id,
 
-        # New name of todoist label
         [string]$Name,
 
-        # New order of todoist label
         [int]$Order,
 
-        # Todoist token if it's not set as a global variable with Set-TodoistToken
         [string]$Token = $Global:TodoistToken
     )
     

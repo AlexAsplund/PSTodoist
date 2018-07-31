@@ -12,11 +12,8 @@ function New-TodoistLabel
 {
     [CmdletBinding()]
     param (
-        # Name of the new todoist label. Remember that whitespaces etc will be replaced by Todoist with "_"
         [parameter(Mandatory)]
         $Name,
-        
-        # Todoist token if it's not set as a global variable with Set-TodoistToken
         [String]$Token = $Global:TodoistToken
     )
     

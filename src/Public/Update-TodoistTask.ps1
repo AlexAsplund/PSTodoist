@@ -11,7 +11,10 @@ Function Update-TodoistTask
     [CmdletBinding()]
     param(
         # ID of todoist Task
-        [parameter(Mandatory)]
+        [parameter(
+            Mandatory = $True,
+            ValueFromPipelineByPropertyName = $True
+        )]
         [string]$Id,
         
         # Content (text) of task.

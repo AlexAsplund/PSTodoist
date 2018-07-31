@@ -25,6 +25,25 @@ See [install](install.md)
 ## Get API-token from todoist.
 On the todoist website, go to: Todoist Settings -> Account -> API token.
 
+## Usage
+You can either set the todoist token with:
+
+```Powershell
+Set-TodoistToken -Token <YourToken>
+```
+
+Or supply it as a parameter on every command
+
+```Powershell
+Get-TodoistTask -Token <Yourtoken>
+```
+
+Example:
+
+```Powershell
+Get-TodoistTask | Where-Object {$_.Content -Match "Do dishes"} | Update-TodoistTask -Content "Buy dishwasher"
+```
+
 ## About the author
 Author: https://github.com/AlexAsplund
 

@@ -46,7 +46,7 @@ Properties {
 
     # Enable/disable use of PSScriptAnalyzer to perform script analysis.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-    $ScriptAnalysisEnabled = $true
+    $ScriptAnalysisEnabled = $false
 
     # When PSScriptAnalyzer is enabled, control which severity level will generate a build failure.
     # Valid values are Error, Warning, Information and None.  "None" will report errors but will not
@@ -153,35 +153,7 @@ Properties {
 
 # Executes before the StageFiles task.
 Task BeforeStageFiles {
-    # Increment version number from gallery
-    Try
-    {
-        $Moduleversion = (Find-Module -Repository $PublishRepository -Name $ModuleName).Version -join "."
-    }
-    catch
-    {
-        $ModuleVersion = "0.0.0"
-    }
-    
-
-    $ModuleVersion = $Moduleversion -split "\."
-
-    [INT]$MajorVersion = $ModuleVersion[0]
-    [INT]$MinorVersion = $ModuleVersion[1]
-    [INT]$PatchVersion = $ModuleVersion[2]
-
-    $PatchVersion++
-
-    $ReleaseNotes = Get-Content $ReleaseNotesPath
-
-    $NewVersion = $MajorVersion, $MinorVersion, $PatchVersion -join "."
-
-
-    $FunctionsToExport = (Get-Item "$SrcRootDir\Public\*").name -replace "\.ps1$", ""
-
-    Update-ModuleManifest -Path "$SrcRootDir\$ModuleName.psd1" -ModuleVersion $NewVersion -ReleaseNotes $ReleaseNotes -FunctionsToExport $FunctionsToExport
-
-    
+ 
 }
 
 # Executes after the StageFiles task.
@@ -193,12 +165,42 @@ Task AfterStageFiles {
 # Customize these tasks for performing operations before and/or after Build.
 ###############################################################################
 
+Task NewVersionDir -depends GenerateMarkdown,Build,Test {
+    
+    Write-Output "Upping module version and creating new guid"
+    $PSM = Invoke-Expression (Get-Content $SrcRootDir\PSTodoist.psd1 -Raw)
+    
+    $VersionArr = ($psm.ModuleVersion -split "\.")
+
+    $VersionArr[-1] = [int]$VersionArr[-1]+1
+
+    $ModuleVersion = $VersionArr -join "."
+
+    Update-ModuleManifest -Path "$SrcRootDir\PSTodoist.psd1" -Guid ([guid]::NewGuid().guid) -ModuleVersion $ModuleVersion
+    Write-Output "Creating out dir as module version"    
+    Remove-Item -Path "$OutDir\$ModuleVersion\" -Force -ErrorAction "SilentlyContinue" -Recurse
+    New-Item -Path $OutDir -Name $ModuleVersion -ItemType Directory
+    Copy-Item -Path "$OutDir\PSTodoist\*" -Destination "$OutDir\$ModuleVersion\" -Recurse -Force
+
+    Write-Output "Adding latest dir to release"
+
+    Remove-Item -Path "$OutDir\Latest\" -Force -ErrorAction "SilentlyContinue"
+
+    Write-Output "Copying to Release to Latest"
+    Copy-Item -Path "$OutDir\PSTodoist" -Destination "$OutDir\Latest" -Recurse -Force
+}
+
 # Executes before the BeforeStageFiles phase of the Build task.
 Task BeforeBuild {
+
+
+    
 }
 
 # Executes after the Build task.
 Task AfterBuild {
+
+
 }
 
 ###############################################################################
@@ -211,6 +213,7 @@ Task BeforeBuildHelp {
 
 # Executes after the BuildHelp task.
 Task AfterBuildHelp {
+
 }
 
 ###############################################################################
@@ -255,6 +258,7 @@ Task AfterInstall {
 
 # Executes before the Publish task.
 Task BeforePublish {
+    
 }
 
 # Executes after the Publish task.

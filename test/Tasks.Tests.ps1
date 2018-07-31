@@ -1,4 +1,4 @@
-$moduleRoot = Resolve-Path "$PSScriptRoot\..\Release\PowershellTodoist"
+$moduleRoot = Resolve-Path "$PSScriptRoot\..\Release\PSTodoist"
 $moduleName = Split-Path $moduleRoot -Leaf
 
 $RandomString = (('abcdefghijklmnopqrstuvxyz1234567890' -split '')[1..35]  | Get-Random -Count 20) -join ""
@@ -33,7 +33,7 @@ Describe "Testing  module $moduleName in $moduleRoot" {
     It "Should have a due string of 'Tomorrow 10pm'" {
         $Task.Due.string | Should -Be 'Tomorrow 10pm'
     }
-    Start-Sleep 5
+    
     It "Should be able to close task without error" {
         
         (Close-TodoistTask -Id $Task.id) | Should -Not -Be $Null
@@ -47,20 +47,21 @@ Describe "Testing  module $moduleName in $moduleRoot" {
     It "Should be able to reopen task without errors" {
         (Open-TodoistTask -Id $Task.id) | Should -Not -Be $Null
     }
-
+    $NewTodoistTask = (Get-TodoistTask | Where-Object {$_.Id -eq $Task.Id})
     It "Task should be retrived with Get-TodoistTask" {
-        (Get-TodoistTask | Where-Object {$_.Id -eq $Task.Id}).Id | Should -Be $Task.Id
+        $NewTodoistTask.Id | Should -Be $Task.Id
     }
 
+    $RandomString = (('abcdefghijklmnopqrstuvxyz1234567890' -split '')[1..35]  | Get-Random -Count 20) -join ""
     $NewRandomString = 'Pester Test for Todoist ' + $RandomString
 
     It "Should be able to update task with Update-TodoistTask" {
         
-        {Update-TodoistTask -Id $Task.Id -Content $NewRandomString} | Should -Not Throw
+        Update-TodoistTask -Id $Task.Id -Content $NewRandomString | Should -Not -Be $Null
     }
 
     It "Task content should be updated" {
-        (Get-TodoistTask | Where-Object {$_.Id -eq $Task.Id}).Content | Should -Be $Task.Content
+        (Get-TodoistTask | Where-Object {$_.Id -eq $Task.Id}).Content | Should -Be $NewRandomString
     }
 
     It "Should be able to remove task" {

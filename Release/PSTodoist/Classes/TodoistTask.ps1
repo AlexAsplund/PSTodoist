@@ -5,7 +5,7 @@ Class TodoistTask {
     [Array]$due
     [Array]$LabelIDs
     [System.Collections.ArrayList]$Labels
-    [int32]$Comment_Count
+    [int32]$CommentCount
     [int32]$Order
     [int32]$Indent
     [int32]$Priority
@@ -17,7 +17,7 @@ Class TodoistTask {
         $this.Id = $item.Id
         $this.ProjectID = $item.project_id
         $this.Content = $item.content
-        if ($item.comment_count) {
+        if ($item.comment_count -ne $null) {
             $this.CommentCount = $item.comment_count
         }
 

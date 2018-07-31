@@ -1,4 +1,4 @@
-$moduleRoot = Resolve-Path "$PSScriptRoot\..\Release\PowershellTodoist"
+$moduleRoot = Resolve-Path "$PSScriptRoot\..\Release\PSTodoist"
 $moduleName = Split-Path $moduleRoot -Leaf
 
 Describe "General project validation: $moduleName" {

@@ -115,9 +115,6 @@ Task CoreStageFiles -requiredVariables ModuleOutDir, SrcRootDir, ModuleName, Pub
 
 Task Build -depends Init, Clean, BeforeBuild, StageFiles, Analyze, Sign, AfterBuild {
 
-
-
-
 }
 
 Task Analyze -depends StageFiles `
@@ -435,7 +432,9 @@ Task Test -depends Build -requiredVariables TestRootDir, ModuleName, CodeCoverag
 
 
 
-Task Publish -depends Build, Test, BuildHelp, GenerateFileCatalog, BeforePublish, CorePublish, AfterPublish {
+Task Publish -depends Build, Test, BuildHelp, GenerateMarkdown, BeforePublish, CorePublish, AfterPublish {
+
+
 }
 
 

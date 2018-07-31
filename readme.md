@@ -63,7 +63,6 @@ $Task.Close
 # To update a class with function
 Update-TodoistTask -Id $Task.Id -Content "Buy cheap dishwasher"
 
-
 # To add comment to task
 $Task | New-TodoistComment -Category Task -Content "Researched dishwashers online"
 

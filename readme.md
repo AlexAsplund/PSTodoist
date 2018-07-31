@@ -6,6 +6,9 @@
 
 ## Download
 
+### Latest
+https://github.com/AlexAsplund/PSTodoist/archive/master.zip
+
 ### v0.0.2
 https://github.com/AlexAsplund/PSTodoist/archive/v0.0.2.zip
 

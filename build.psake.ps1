@@ -236,7 +236,7 @@ Task Sign -depends StageFiles -requiredVariables CertPath, SettingsPath, ScriptS
 Task BuildHelp -depends Build, BeforeBuildHelp, GenerateMarkdown, GenerateHelpFiles, AfterBuildHelp {
 }
 
-Task GenerateMarkdown -depends Build -requiredVariables DefaultLocale, DocsRootDir, ModuleName, ModuleOutDir {
+Task GenerateMarkdown -depends Build,BeforeGenerateMarkdown -requiredVariables DefaultLocale, DocsRootDir, ModuleName, ModuleOutDir {
     if (!(Get-Module platyPS -ListAvailable)) {
         "platyPS module is not installed. Skipping $($psake.context.currentTaskName) task."
         return

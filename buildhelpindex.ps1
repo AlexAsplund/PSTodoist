@@ -1,7 +1,5 @@
 ﻿$files = ls $PSScriptRoot\src\Public\*
 
-$help = cat "$PSScriptRoot\docs\en-us\PSTodoist.md" -Raw
-
 $Text = @"
 # PSTodoist Module
 ## Description

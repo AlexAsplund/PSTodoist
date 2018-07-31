@@ -13,62 +13,62 @@ Not an official module! This one is made by https://github.com/AlexAsplund
 
 ## PSTodoist Cmdlets
 ### [Close-TodoistTask](Close-TodoistTask.md)
-{{Manually Enter Close-TodoistTask Description Here}}
+    Closes a Todoist task
 
 ### [Get-TestString](Get-TestString.md)
-{{Manually Enter Get-TestString Description Here}}
+    Returns the string you input, placeholder for plaster import
 
 ### [Get-TodoistComment](Get-TodoistComment.md)
-{{Manually Enter Get-TodoistComment Description Here}}
+    Gets all comments for a project or task
 
 ### [Get-TodoistLabel](Get-TodoistLabel.md)
-{{Manually Enter Get-TodoistLabel Description Here}}
+    Gets all todoist labels
 
 ### [Get-TodoistProject](Get-TodoistProject.md)
-{{Manually Enter Get-TodoistProject Description Here}}
+    Gets all open todoist projects
 
 ### [Get-TodoistTask](Get-TodoistTask.md)
-{{Manually Enter Get-TodoistTask Description Here}}
+    Gets all open todoist tasks and gives them back in [TodoistTask] type form
 
 ### [New-TodoistComment](New-TodoistComment.md)
-{{Manually Enter New-TodoistComment Description Here}}
+    Creates a new comment for a project or task
 
 ### [New-TodoistLabel](New-TodoistLabel.md)
-{{Manually Enter New-TodoistLabel Description Here}}
+    Creates a new label in todoist
 
 ### [New-TodoistProject](New-TodoistProject.md)
-{{Manually Enter New-TodoistProject Description Here}}
+    Creates a new project in todoist
 
 ### [New-TodoistTask](New-TodoistTask.md)
-{{Manually Enter New-TodoistTask Description Here}}
+    Creates a new todoist task
 
 ### [Open-TodoistTask](Open-TodoistTask.md)
-{{Manually Enter Open-TodoistTask Description Here}}
+    Opens a previously closed Todoist task
 
 ### [Remove-TodoistComment](Remove-TodoistComment.md)
-{{Manually Enter Remove-TodoistComment Description Here}}
+    Removes a Todoist comment
 
 ### [Remove-TodoistLabel](Remove-TodoistLabel.md)
-{{Manually Enter Remove-TodoistLabel Description Here}}
+    Removes a Todoist label
 
 ### [Remove-TodoistProject](Remove-TodoistProject.md)
-{{Manually Enter Remove-TodoistProject Description Here}}
+    Removes a Todoist project
 
 ### [Remove-TodoistTask](Remove-TodoistTask.md)
-{{Manually Enter Remove-TodoistTask Description Here}}
+    Removes a Todoist task
 
 ### [Set-TodoistToken](Set-TodoistToken.md)
-{{Manually Enter Set-TodoistToken Description Here}}
+    Sets todoist token as a global variable
 
 ### [Update-TodoistComment](Update-TodoistComment.md)
-{{Manually Enter Update-TodoistComment Description Here}}
+    Updates a comment
 
 ### [Update-TodoistLabel](Update-TodoistLabel.md)
-{{Manually Enter Update-TodoistLabel Description Here}}
+    Updates a label
 
 ### [Update-TodoistProject](Update-TodoistProject.md)
-{{Manually Enter Update-TodoistProject Description Here}}
+    Updates a project
 
 ### [Update-TodoistTask](Update-TodoistTask.md)
-{{Manually Enter Update-TodoistTask Description Here}}
+    Updates a todoist task
 

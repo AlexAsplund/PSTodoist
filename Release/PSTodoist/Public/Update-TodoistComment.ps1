@@ -19,6 +19,7 @@ function Update-TodoistComment
         # Content of the comment. Sorry, updating attachments not yet supported
         [string]$Content,
         
+        # Todoist token if it's not set as a global variable with Set-TodoistToken
         [string]$Token = $Global:TodoistToken
     )
     

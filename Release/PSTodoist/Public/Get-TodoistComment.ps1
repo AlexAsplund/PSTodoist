@@ -13,7 +13,10 @@ function Get-TodoistComment
     [CmdletBinding()]
     param (
         [parameter(ValueFromPipelineByPropertyName, Mandatory = $True)]
+        # Id of the todoist comment
         [int64]$Id,
+
+        # Category of todoist comment. Either "Task" or "Project"
         [parameter(Mandatory)]
         [ValidateSet("Project", "Task")]
         [String]$Category,

@@ -165,7 +165,7 @@ Task AfterStageFiles {
 # Customize these tasks for performing operations before and/or after Build.
 ###############################################################################
 
-Task NewVersion -depends GenerateMarkdown,Build,Test {
+Task NewVersion -depends Clean {
     
     Write-Output "Upping module version and creating new guid"
     $PSM = Invoke-Expression (Get-Content $SrcRootDir\PSTodoist.psd1 -Raw)
@@ -175,8 +175,12 @@ Task NewVersion -depends GenerateMarkdown,Build,Test {
     $VersionArr[-1] = [int]$VersionArr[-1]+1
 
     $ModuleVersion = $VersionArr -join "."
-
+    Write-Output "Upping Modue version"
     Update-ModuleManifest -Path "$SrcRootDir\PSTodoist.psd1" -Guid ([guid]::NewGuid().guid) -ModuleVersion $ModuleVersion
+    
+    $InstallInstructions = Get-Content  "$PSScriptRoot\install.md"
+    Write-Output "Adding module version to install.md"
+    $InstallInstructions -replace '\$Version = "\d+\.\d+\.\d+"', ('    $'+"Version = $ModuleVersion") | Out-File "$PSScriptRoot\install.md" -Force
 }
 
 ###############################################################################

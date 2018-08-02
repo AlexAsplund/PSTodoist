@@ -3,6 +3,7 @@
     Gets all comments for a project or task
 .DESCRIPTION
     Gets all comments for a project or task. Selection if Id is for a project or task is done through parameter "category"
+    Id can be array
 .EXAMPLE
     Get-TodoistComment -Id 1234 -Category "Task"
 .EXAMPLE
@@ -14,7 +15,7 @@ function Get-TodoistComment
     param (
         # Id of todoist comment
         [parameter(ValueFromPipelineByPropertyName, Mandatory = $True)]
-        [int64]$Id,
+        [int64[]]$Id,
 
         # Category of ID (either task or project)
         [parameter(Mandatory)]
@@ -28,6 +29,8 @@ function Get-TodoistComment
     begin
     {
 
+        $Comments = @()
+
         $Category = $Category.ToLower()
 
         Write-Verbose "Beginning to fetch comments for $Category $Id"
@@ -37,28 +40,33 @@ function Get-TodoistComment
             "Authorization" = "Bearer $($Token)"
         }
 
+        
+
     }
     
     process
     {
-        $Uri = ("https://beta.todoist.com/API/v8/comments?" + $Category + "_id=" + $Id)
-        Write-Verbose $Uri
-        $Request = Invoke-RestMethod -Headers $Header -Method Get -Uri $Uri
-        
-        $Comments = @()
-        
-        foreach ($Comment in $Request)
-        {
-            try
+        foreach($sId in $Id){
+            $Uri = ("https://beta.todoist.com/API/v8/comments?" + $Category + "_id=" + $sId)
+            Write-Verbose $Uri
+            $Request = Invoke-RestMethod -Headers $Header -Method Get -Uri $Uri
+            
+            
+            
+            foreach ($Comment in $Request)
             {
-                $Comments += $Comment
-            }
-            catch
-            {
-                Write-Error $_
-                
+                try
+                {
+                    $Comments += $Comment
+                }
+                catch
+                {
+                    Write-Error $_
+                    
+                }
             }
         }
+       
     }
     
     end

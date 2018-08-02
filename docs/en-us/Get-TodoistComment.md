@@ -13,12 +13,13 @@ Gets all comments for a project or task
 ## SYNTAX
 
 ```
-Get-TodoistComment [-Id] <Int64> [-Category] <String> [[-Token] <String>] [<CommonParameters>]
+Get-TodoistComment [-Id] <Int64[]> [-Category] <String> [[-Token] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Gets all comments for a project or task.
 Selection if Id is for a project or task is done through parameter "category"
+Id can be array
 
 ## EXAMPLES
 
@@ -38,13 +39,13 @@ Get-TodoistComment -Id 5678 -Category "Category"
 Id of todoist comment
 
 ```yaml
-Type: Int64
+Type: Int64[]
 Parameter Sets: (All)
 Aliases:
 
 Required: True
 Position: 1
-Default value: 0
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```

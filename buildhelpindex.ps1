@@ -1,4 +1,9 @@
-﻿$files = ls $PSScriptRoot\src\Public\*
+﻿param(
+
+    [switch]$Debug
+
+)
+$files = ls $PSScriptRoot\src\Public\*
 
 $Text = @"
 # PSTodoist Module
@@ -12,36 +17,48 @@ This module is not affiliated with todoist!
 
 foreach($file in $files){
 
-    $description = (cat $file.fullname)[2] + "`n"
+    $description = ((cat $file.fullname)[2] + "`n") -replace "^\s+",""
     $cmdletname = $file.name -replace "\.ps1",""
     
-    $NextRow = $False
+    $NextRowIsExample = $False
+    $NextRowIsDescription = $False
     $Example = "`n"
+
+    $Descr = ""
+
     (cat $file.FullName) | foreach {
-        if($NextRow){
+        if($NextRowIsExample){
 
             $Example += "`n$_"
             
-            $NextRow = $false
+            $NextRowIsExample = $false
             
 
         }
+
         if($_ -eq ".Example"){
 
-            $NextRow = $True
+            $NextRowIsExample = $True
 
         }
-
 
     }
 
     $Example += "`n"
     $Text+= "### [$cmdletname]($cmdletname.md)"
+    $Text += "`n`nDescription:`n`n"
+    $Text += "$Description"
+    $Text += "`nExample:"
     $text += $Example+"`n"
     $text += $cmdletinfo
 }
 
-$Text | Out-File -FilePath $PSScriptRoot\docs\en-us\PSTodoist.md -Force
+if(!$Debug) {
+    $Text | Out-File -FilePath $PSScriptRoot\docs\en-us\PSTodoist.md -Force
+}
+else {
+    $Text
+}
 
 
 

@@ -46,9 +46,9 @@ foreach($file in $files){
 
     $Example += "`n"
     $Text+= "### [$cmdletname]($cmdletname.md)"
-    $Text += "`n`nDescription:`n`n"
+    $Text += "`n`n####Description:`n`n"
     $Text += "$Description"
-    $Text += "`nExample:"
+    $Text += "`n####Example:"
     $text += $Example+"`n"
     $text += $cmdletinfo
 }

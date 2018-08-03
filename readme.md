@@ -6,15 +6,11 @@
 
 ## Download
 
-### Latest
+### Latest build
 https://github.com/AlexAsplund/PSTodoist/archive/master.zip
 
-### v0.0.2
+### v0.0.3
 https://github.com/AlexAsplund/PSTodoist/archive/v0.0.2.zip
-
-### v0.0.1
-https://github.com/AlexAsplund/PSTodoist/archive/v0.0.1.zip
-
 
 ## Install
 See [install](install.md)

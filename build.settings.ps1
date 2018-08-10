@@ -181,6 +181,15 @@ Task NewVersion -depends Clean {
     $InstallInstructions = Get-Content  "$PSScriptRoot\install.md"
     Write-Output "Adding module version to install.md"
     $InstallInstructions -replace '\$Version = "\d+\.\d+\.\d+"', ('    $'+"Version = $ModuleVersion") | Out-File "$PSScriptRoot\install.md" -Force
+
+    $Readme =  Get-Content "$PSScriptRoot\readme.md"
+    $Readme = $Readme -replace 'v\d+\.\d+\.\d+', "v$ModuleVersion"
+
+    $Readme | Out-File "$PSScriptRoot\readme.md" -Force
+
+
+
+    
 }
 
 ###############################################################################

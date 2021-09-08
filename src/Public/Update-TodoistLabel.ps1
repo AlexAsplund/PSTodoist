@@ -64,7 +64,7 @@ function Update-TodoistLabel
     process
     {
         Write-Verbose "Updating label"
-        $Uri = "https://beta.todoist.com/API/v8/labels/$Id"
+        $Uri = "https://api.todoist.com/rest/v1/labels/$Id"
         $Response = Invoke-RestMethod -Uri $Uri -Headers $Header -Body ($Body) -Method Post
         Write-Verbose $Response
     }

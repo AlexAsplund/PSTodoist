@@ -44,7 +44,7 @@ function Update-TodoistComment
     process
     {
         Write-Verbose "Updating comment"
-        $Uri = "https://beta.todoist.com/API/v8/comments/$Id"
+        $Uri = "https://api.todoist.com/rest/v1/comments/$Id"
         $Response = Invoke-RestMethod -Uri $Uri -Headers $Header -Body ($Body) -Method Post
         Write-Verbose $Response
     }

@@ -34,7 +34,7 @@ function Get-TodoistTask
 
     process
     {
-        $Request = Invoke-RestMethod -Headers $Header -Method Get -Uri 'https://beta.todoist.com/API/v8/tasks' 
+        $Request = Invoke-RestMethod -Headers $Header -Method Get -Uri 'https://api.todoist.com/rest/v1/tasks' 
         
         $Tasks = @()
         

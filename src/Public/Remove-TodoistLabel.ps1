@@ -39,7 +39,7 @@ function Remove-TodoistLabel
         
         $Id | Foreach {
         
-            $Uri = "https://beta.todoist.com/API/v8/labels/$_"
+            $Uri = "https://api.todoist.com/rest/v1/labels/$_"
             Write-Output $Uri
             $Request = Invoke-RestMethod -Headers $Header -Method Delete -Uri $Uri
             $Requests += $Request

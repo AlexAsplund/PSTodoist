@@ -89,7 +89,7 @@ function New-TodoistComment
     
     process
     {
-        $Uri = ("https://beta.todoist.com/API/v8/comments")
+        $Uri = ("https://api.todoist.com/rest/v1/comments")
         Write-Verbose $Uri
         $Request = Invoke-RestMethod -Headers $Header -Method Post -Uri $Uri -Body $Body
         

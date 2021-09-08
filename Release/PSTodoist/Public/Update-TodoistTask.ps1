@@ -94,7 +94,7 @@ Function Update-TodoistTask
             'X-Request-Id'  = [guid]::NewGuid().guid
             "Authorization" = "Bearer $($token)"
         }
-        $Uri = "https://beta.todoist.com/API/v8/tasks/$Id"
+        $Uri = "https://api.todoist.com/rest/v1/tasks/$Id"
     }
 
     process

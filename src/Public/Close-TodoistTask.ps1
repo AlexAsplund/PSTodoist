@@ -39,7 +39,7 @@ function Close-TodoistTask
         
         $Id | Foreach {
         
-            $Uri = "https://beta.todoist.com/API/v8/tasks/$_/close"
+            $Uri = "https://api.todoist.com/rest/v1/tasks/$_/close"
             Write-Output $Uri
             $Request = Invoke-RestMethod -Headers $Header -Method Post -Uri $Uri
             $Requests += $Request

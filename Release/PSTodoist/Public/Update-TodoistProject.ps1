@@ -44,7 +44,7 @@ function Update-TodoistProject
     process
     {
         Write-Verbose "Updating project"
-        $Uri = "https://beta.todoist.com/API/v8/projects/$Id"
+        $Uri = "https://api.todoist.com/rest/v1/projects/$Id"
         $Response = Invoke-RestMethod -Uri $Uri -Headers $Header -Body ($Body) -Method Post
         Write-Verbose $Response
     }

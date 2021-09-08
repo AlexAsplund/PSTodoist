@@ -40,7 +40,7 @@ function Open-TodoistTask
         
         $Id | Foreach {
         
-            $Uri = "https://beta.todoist.com/API/v8/tasks/$_/reopen"
+            $Uri = "https://api.todoist.com/rest/v1/tasks/$_/reopen"
             Write-Output $Uri
             $Request = Invoke-RestMethod -Headers $Header -Method Post -Uri $Uri
             $Requests += $Request

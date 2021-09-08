@@ -41,7 +41,7 @@ function New-TodoistLabel
     process
     {
         Write-Verbose "Creating label"
-        $Uri = "https://beta.todoist.com/API/v8/labels"
+        $Uri = "https://api.todoist.com/rest/v1/labels"
         $Response = Invoke-RestMethod -Uri $Uri -Headers $Header -Body ($Body) -Method Post
         Write-Verbose $Response
     }

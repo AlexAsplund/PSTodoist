@@ -18,7 +18,7 @@ function New-TodoistTask
         [string]$ProjectID,
 
         # LabelID or LabelIDs that the task should have. One or an array of INTs 
-        [int[]]$LabelIDs,
+        [int64[]]$LabelIDs,
 
         # Task priority
         [ValidatePattern('[1-4]')]

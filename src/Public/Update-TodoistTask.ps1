@@ -21,7 +21,7 @@ Function Update-TodoistTask
         [string]$Content,
         
         # LabelID or LabelIDs that the task should have (one int or array of ints)
-        [int[]]$LabelIDs,
+        [int64[]]$LabelIDs,
 
         # Priority of the task.
         [ValidatePattern('[0-4]')]
